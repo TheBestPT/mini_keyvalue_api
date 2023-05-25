@@ -15,11 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-
 
 function authChecker(req, res, next) {
     const auth = JSON.parse(fs.readFileSync('./whitelist.json'))
-    const acess = auth.filter((e) => { return e == req.headers.authorization })
-    if (acess.length != 0) {
+    const access = auth.filter((e) => { return e == req.headers.authorization })
+    if (access.length != 0) {
         next();
     } else {
-       res.end('Acess Forbiden')
+       res.end('Access Forbiden')
     }
 }
 
