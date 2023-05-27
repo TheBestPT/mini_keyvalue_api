@@ -23,7 +23,7 @@ function authChecker(req, res, next) {
     }
 }
 
-app.use(authChecker);
+app.use(authChecker)
 
 app.listen(config.port, () => {
     console.log(`Listening on port: ${config.port}`)
@@ -176,6 +176,8 @@ app.put('/collections/:collection/items', (req, res) => {
     const collectionName = req.params.collection
     const data = req.body.data
     const itemName = req.body.item
+    console.log(`data: ${data}`)
+    console.log(`itemName: ${item}`)
     if(!fs.existsSync(`./collections/${collectionName}`)){
         res.status(400).json({error: 'Collection not found ou non existing.'})
         return //prevent from continuing
@@ -185,7 +187,7 @@ app.put('/collections/:collection/items', (req, res) => {
         res.json({message: 'Sucess', item: itemName, data: JSON.parse(data)})
     }catch(e){
         console.log(e)
-        res.status(400).json({error: 'Error on create item.'})
+        res.status(400).json({error: 'Error on update item.'})
     }
 })
 
