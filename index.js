@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-
 function authChecker(req, res, next) {
     const auth = JSON.parse(fs.readFileSync('./whitelist.json'))
     const access = auth.filter((e) => { return e == req.headers.authorization })
+    console.log(`endpoint: ${req.url}`)
     if (access.length != 0) {
         next();
     } else {
