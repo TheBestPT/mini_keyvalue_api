@@ -177,7 +177,7 @@ app.put('/collections/:collection/items', (req, res) => {
     const data = req.body.data
     const itemName = req.body.item
     console.log(`data: ${data}`)
-    console.log(`itemName: ${item}`)
+    console.log(`itemName: ${itemName}`)
     if(!fs.existsSync(`./collections/${collectionName}`)){
         res.status(400).json({error: 'Collection not found ou non existing.'})
         return //prevent from continuing
