@@ -180,7 +180,7 @@ app.put('/collections/:collection/items', (req, res) => {
     console.log(`data: ${data}`)
     console.log(`itemName: ${itemName}`)
     if(!fs.existsSync(`./collections/${collectionName}`)){
-        res.status(400).json({error: 'Collection not found ou non existing.'})
+        res.status(400).json({error: 'Collection not found or non existing.'})
         return //prevent from continuing
     }
     try{
